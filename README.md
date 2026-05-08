@@ -119,14 +119,14 @@ By default, Wazuh does not read the Windows Defender logs; however, we can confi
 
 <p align="center">
  copy the following int the ossec.conf file:<br/>
-<img alt="image" src="https://github.com/user-attachments/assets/81004462-f123-49b5-90e8-e3900eb8b4ba" height="80%" width="80%"/>
+<img alt="image" src="https://github.com/user-attachments/assets/3679be6e-7705-4db5-a5d7-a9cdab7488d4" height="80%" width="80%"/>
 <br/>
 <br/>
 
 
 <p align="center">
  screenshot of configuration:<br/>
-<img alt="image" src="https://github.com/user-attachments/assets/81004462-f123-49b5-90e8-e3900eb8b4ba" height="80%" width="80%"/>
+<img alt="image" src="https://github.com/user-attachments/assets/cd4940ed-dfac-4858-a29a-1caf72116c2f" height="80%" width="80%"/>
 <br/>
 <br/>
 
