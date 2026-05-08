@@ -90,6 +90,48 @@ Scroll down to find the filebeat.modules wazuh archives enabled:false. Change th
 <br/>
 <br/>
 
+## Integrating Windows Defender and PowerShell Logs
+
+### **Windows Defender logs**
+
+Windows Defender stands out as the predominant free antivirus solution for PC users, commanding approximately 40% of the market share among free antivirus software options. 
+
+Windows Defender logs can play a crucial role in aiding SOC analysts to grasp the security posture of endpoints, discern potential cyber threats, and conduct thorough investigations into security incidents. These logs contain various types of data including scan activities, threat detections, updates, quarantine actions, remediation efforts, firewall and network activities, as well as real-time protection events.
+
+By default, Wazuh does not read the Windows Defender logs; however, we can configure Wazuh to integrate Windows Defender logs.  
+
+### PowerShell Logs
+
+**Windows PowerShell Log**: This log captures general operational information about PowerShell, including startup, shutdown, and errors encountered during execution. You can find this log under "Applications and Services Logs" -> "Microsoft" -> "Windows" -> "PowerShell".<br/>
+<br/>
+
+**Windows PowerShell Operational Log**: This log provides detailed information about PowerShell script execution, module loading, and other operational events. It's particularly useful for auditing purposes as it logs detailed information about script blocks executed within PowerShell. You can find this log under "Applications and Services Logs" -> "Microsoft" -> "Windows" -> "PowerShell" -> "Operational".<br/>
+<br/>
+
+- **Script Block Logging**: PowerShell can be configured to log script block execution, capturing the contents of scripts as they're executed. This is a powerful auditing tool for tracking exactly what commands were run on a system.<br/>
+- **Module Logging**: PowerShell logs information about the loading and unloading of modules. This can help administrators understand which modules are being used and when they are being accessed.<br/>
+- **Transcription Logging**: PowerShell can be configured to log the input and output of PowerShell sessions, effectively recording interactive PowerShell sessions. This is particularly useful for compliance and security purposes.<br/>
+<br/>
+
+## Adding logging to the ossec configuration file. 
+
+<b>Step 1: On the Windows VM:<b/> Use a text editor (notepad++ or notepad) as an Administrator and edit the `C:\\Program Files (x86)\\ossec-agent\\ossec.conf` file and add the following entries:<br/>
+
+<p align="center">
+ copy the following int the ossec.conf file:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/81004462-f123-49b5-90e8-e3900eb8b4ba" height="80%" width="80%"/>
+<br/>
+<br/>
+
+
+<p align="center">
+ screenshot of configuration:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/81004462-f123-49b5-90e8-e3900eb8b4ba" height="80%" width="80%"/>
+<br/>
+<br/>
+
+
+
 
 
 
