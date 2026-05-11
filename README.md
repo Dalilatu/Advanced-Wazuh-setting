@@ -130,8 +130,81 @@ By default, Wazuh does not read the Windows Defender logs; however, we can confi
 <br/>
 <br/>
 
+ Make sure to pay attention to the identations.<br/>
+
+**Note** that if you disabled Windows Defender in prevous labs, you will need to enable it in order for the logs to be forwarded to Wazuh. <br/>
+<br/>
+Restart Wazuh service using PowerShell.<br/>
+`NET STOP WazuhSvc`<br/>
+`NET START WazuhSvc`<br/>
+<br/>
+
+**Step 2:** Enable Windows Defender using **gpedit**. <br/>
+ Follow the following steps ; **Local Computer Policy > Administrative Templates > Windows Components > Microsoft Defender Antivirus > Turn Off microsoft defenders antivirus** <br/>
+
+ <p align="center">
+  Local Group Editor:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/f0fd7471-76d1-443a-a83d-1c537ec2e5e9" height="80%" width="80%"/>
+<br/>
+<br/>
+
+ <p align="center">
+  Disable Microsoft Defender Antivirus:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/60433fe0-82b8-4593-b09e-314f9de44d86" height="80%" width="80%"/>
+<br/>
+<br/>
 
 
+<p align="center">
+  Turn off real-time protection:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/fcd43ff2-7983-4352-9f76-5612d84f3b84" height="80%" width="80%"/>
+<br/>
+<br/>
+
+<p align="center">
+  Disable real-time protection:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/d4b3d6df-cac5-4027-85f8-e6b302175790" height="80%" width="80%"/>
+<br/>
+<br/>
+
+
+
+
+
+
+## Testing both Windows Defender and PowerShell Integrations
+
+To test the Windows Defender integration we will download another eicar file using the PowerShell script below.<br/>
+
+<!-- 
+   Invoke-WebRequest -Uri https://wildfire.paloaltonetworks.com/publicapi/test/pe  -OutFile C:/Users/m122/Downloads/pe.exe                            -->
+
+
+
+<p align="center">
+  Wazuh platform showing malware detection using Microsoft Antivirus Detection:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/9717ed5d-1b33-496f-8a02-96f143a1e384" height="80%" width="80%"/>
+<br/>
+<br/>
+
+
+## Troubleshooting Logging
+
+If events are not showing up in the Discovery feature of Wazuh, you can check the archives log with the following command. We will grep for pe.exe, the name of the EICAR file we executed earlier.<br/>
+
+`sudo cat /var/ossec/logs/archives/archives.json | grep -i pe.exe`<br/>
+
+
+<p align="center">
+  Wazuh server logs showing multiple hits.:<br/>
+<img alt="image" src="https://github.com/user-attachments/assets/dabae370-6d43-4d8f-9073-7435f108ad7e" height="80%" width="80%"/>
+<br/>
+<br/>
+
+Another way to troubleshoot is to go back to the VM and look at the logging with **Event Viewer**.
+
+## Conclusion
+Integrating both VirusTotal and Windows Defender makes it possible to monitor malware and suspicious activity across multiple endpoints through a centralized view in the Wazuh Security Events Dashboard. Additionally, enabling log archiving for all ingested events supports incident investigations and enhances threat hunting capabilities.
 
 
 
