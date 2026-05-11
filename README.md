@@ -115,7 +115,7 @@ By default, Wazuh does not read the Windows Defender logs; however, we can confi
 
 ## Adding logging to the ossec configuration file. 
 
-<b>Step 1: On the Windows VM:<b/> Use a text editor (notepad++ or notepad) as an Administrator and edit the `C:\\Program Files (x86)\\ossec-agent\\ossec.conf` file and add the following entries:<br/>
+<b>Step 1: On the Windows VM:</b> Use a text editor (notepad++ or notepad) as an Administrator and edit the `C:\\Program Files (x86)\\ossec-agent\\ossec.conf` file and add the following entries:<br/>
 
 <p align="center">
  copy the following int the ossec.conf file:<br/>
